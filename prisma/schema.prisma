@@ -9,3 +9,20 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       Int      @id @default(autoincrement())
+  name     String
+  username String   @unique
+  password String
+  threads  Thread[] @relation()
+}
+
+model Thread {
+  id     Int    @id @default(autoincrement())
+  title  String
+  body   String
+  likes  Int
+  userId Int
+  User   User   @relation(fields: [userId], references: [id])
+}
