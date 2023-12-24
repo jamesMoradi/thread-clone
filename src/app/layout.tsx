@@ -14,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='grid grid-cold-3'>
+      <body className='flex flex-row'>
         <SideLeft />
-        <main>
+        <main className='bg-red-600 w-[65%]'>
           {children}
         </main>
         <SideRight />
