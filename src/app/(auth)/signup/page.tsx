@@ -28,7 +28,7 @@ const page = () => {
                 console.log(res);
                 
                 if (res.status === 200) {
-                    router.push('/login')
+                    router.push('/api/auth/signin')
                 } 
             } else {
                 return('password and password confirmation are not match')

@@ -8,7 +8,6 @@ import { usePathname } from 'next/navigation';
 
 const SideLeft = () => {
   const path = usePathname()
-  console.log(path);
   
   const links = [
     {path : '/', pathName : 'home', icon : <TbSmartHome />},

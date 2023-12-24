@@ -14,7 +14,6 @@ const authOptions : AuthOptions = {
             credentials : {
                 username : {label : 'Username', type : 'username', placeholder : 'jsmit'},
                 password : {label : 'Password', type : 'password', placeholder: 'sth'},
-                email : {label : 'Email', type : 'email'}
             },
             authorize : async (credentials, req) => {
 
@@ -33,7 +32,7 @@ const authOptions : AuthOptions = {
                 }
 
                 //to see if password is match
-                const isMath = await bycrypt.compare(user.password!, credentials.password)
+                const isMath = user.password === credentials.password
                 if (!isMath) {
                     return null
                 }
