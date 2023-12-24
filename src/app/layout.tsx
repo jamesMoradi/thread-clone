@@ -1,5 +1,6 @@
 import SideLeft from './SideLeft'
 import SideRight from './SideRight'
+import AuthProvider from '@/app/(auth)/provider'
 import './globals.css'
 
 export const metadata = {
@@ -15,11 +16,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='flex flex-row'>
-        <SideLeft />
-        <main className='bg-red-600 w-[65%]'>
-          {children}
-        </main>
-        <SideRight />
+        <AuthProvider>
+          <SideLeft />
+          <main className='w-[65%]'>
+            {children}
+          </main>
+          <SideRight />
+        </AuthProvider>
       </body>
     </html>
   )

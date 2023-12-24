@@ -2,7 +2,13 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <section>
+      <form action="">
+        <div></div>
+        <div></div>
+        <div></div>
+      </form>
+    </section>
   )
 }
 
