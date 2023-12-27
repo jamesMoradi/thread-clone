@@ -18,16 +18,20 @@ const page = () => {
 
     const onSubmit = async () => {
         if (data.username && data.password) {  
-              const res = await signIn('credentials')
-              console.log(res);
+              const res = await signIn('credentials', {...data, redirect : false})
               
+              if (res?.ok) {
+                router.push('/profile')
+              } else {
+                alert('username or password is wronog')
+              }
             }
         } 
     
 
   return (
     <div className='flex flex-col justify-center items-center gap-5 h-screen'>
-        <h1 className='text-4xl font-bold'>Sign Up</h1>
+        <h1 className='text-4xl font-bold'>Sign In</h1>
         <form onSubmit={e => e.preventDefault()} className='w-96 block'>
             <div className='mb-5'>
                 <input name='username' className='p-3 rounded-md w-full bg-dark-4 focus:bg-dark-2 focus:outline-none' 

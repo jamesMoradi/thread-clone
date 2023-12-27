@@ -7,6 +7,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient()
 
 const authOptions : AuthOptions = {
+    secret : process.env.AUTH_SECRET,
     adapter : PrismaAdapter(prisma),
     providers : [
         CredentialProvider({
@@ -31,8 +32,8 @@ const authOptions : AuthOptions = {
                     return null
                 }
 
-                //to see if password is match
                 const isMath = user.password === credentials.password
+
                 if (!isMath) {
                     return null
                 }
@@ -43,6 +44,13 @@ const authOptions : AuthOptions = {
     ],
     session : {
         strategy : 'jwt'
+    },
+    callbacks : {
+        async session({ session, token }: { session: any; token: any }) {
+            const newSession = { ...session };
+            newSession.user.id = token.sub as string;
+            return newSession;
+        },
     }
 }
 
