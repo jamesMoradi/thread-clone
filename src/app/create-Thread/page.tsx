@@ -35,16 +35,25 @@ const page = async () => {
   }
     
   return (
-    <section>
+    <section className='p-10'>
       <form action={postHandler}>
         <div className='mb-5'>
-          <input className='text-black' type="text" name="title" />
+          <input className='text-black w-full rounded-md p-2  transition-all
+          bg-dark-4 focus:bg-light-4 focus:border-none focus:outline-none' 
+          type="text" name="title" placeholder='Thread Title'/>
         </div>
         <div className='mb-5'>
-          <input className='text-black' type="text" name="body" id="" />
+          <textarea 
+          className='text-black w-full rounded-md p-2 resize-none transition-all
+          bg-dark-4 focus:bg-light-4 focus:border-none focus:outline-none' 
+          name="body" id="" placeholder='Thread Body'/>
         </div>
         <div className='mb-5'>
-          <input type="submit" value={'add thread'} />
+          <input 
+          type="submit" 
+          value={'add thread'} 
+          className='bg-primary-500 hover:bg-blue 
+          transition-colors w-full capitalize py-3 rounded-md' />
         </div>
       </form>
     </section>
