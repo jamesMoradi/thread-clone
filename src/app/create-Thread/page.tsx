@@ -20,15 +20,14 @@ const page = async () => {
 
     const res = await prisma?.thread.create({
       data : {
-        title : title as string, 
         body : body as string,
         userId : session.user!.id,
         likes : 0,
       }
     })
 
-    if (res?.title) {
-      redirect('/activity')
+    if (res?.body) {
+      redirect('/profile')
     }
     
     
@@ -38,13 +37,8 @@ const page = async () => {
     <section className='p-10'>
       <form action={postHandler}>
         <div className='mb-5'>
-          <input className='text-black w-full rounded-md p-2  transition-all
-          bg-dark-4 focus:bg-light-4 focus:border-none focus:outline-none' 
-          type="text" name="title" placeholder='Thread Title'/>
-        </div>
-        <div className='mb-5'>
           <textarea 
-          className='text-black w-full rounded-md p-2 resize-none transition-all
+          className='text-black w-full h-[80vh] rounded-md p-2 resize-none transition-all
           bg-dark-4 focus:bg-light-4 focus:border-none focus:outline-none' 
           name="body" id="" placeholder='Thread Body'/>
         </div>

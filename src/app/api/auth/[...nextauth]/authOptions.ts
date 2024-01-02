@@ -16,7 +16,7 @@ const authOptions : AuthOptions = {
                 username : {label : 'Username', type : 'username', placeholder : 'jsmit'},
                 password : {label : 'Password', type : 'password', placeholder: 'sth'},
             },
-            authorize : async (credentials, req) => {
+            authorize : async (credentials) => {
 
                 if (!credentials?.username || !credentials?.password) {
                     return null
@@ -38,7 +38,7 @@ const authOptions : AuthOptions = {
                     return null
                 }
 
-                return user
+                return {...user}
             },
         })
     ],

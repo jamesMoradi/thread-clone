@@ -1,5 +1,4 @@
 import SideLeft from './SideLeft'
-import SideRight from './SideRight'
 import AuthProvider from '@/app/(auth)/provider'
 import './globals.css'
 
@@ -21,7 +20,6 @@ export default function RootLayout({
           <main className='w-[65%]'>
             {children}
           </main>
-          <SideRight />
         </AuthProvider>
       </body>
     </html>

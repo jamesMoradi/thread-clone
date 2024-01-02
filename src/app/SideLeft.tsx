@@ -15,7 +15,6 @@ const SideLeft = () => {
   const links = [
     {path : '/', pathName : 'home', icon : <TbSmartHome />},
     {path : '/search', pathName : 'search', icon : <TbSearch />},
-    {path : '/activity', pathName : 'activity', icon : <TbHeart />},
     {path : '/create-Thread', pathName : 'create thread', icon : <LuImagePlus />},
     {path : '/communities', pathName : 'communities', icon : <TbUsers />},
     {path : '/profile', pathName : 'profile', icon : <TbUser />},

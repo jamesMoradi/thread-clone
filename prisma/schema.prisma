@@ -45,9 +45,18 @@ model User {
   password      String?
   emailVerified DateTime?
   image         String?
+  bio           String?
+  followers     Follower[] 
   accounts      Account[]
   sessions      Session[]
   threads       Thread[]
+}
+
+model Follower {
+  id          String      @id @default(cuid())
+  username    String      @unique
+  image       String
+  user        User[]
 }
 
 model VerificationToken {
@@ -60,7 +69,6 @@ model VerificationToken {
 
 model Thread {
   id     String    @id @default(cuid())
-  title  String
   body   String
   likes  Int
   userId String 
